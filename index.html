@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Enter your location:</h1>
+
+    <form id="placeForm">
+        <label for="place">Place</label>
+        <input type="text" id="place" name="place">
+        <button type="submit">Get data</button>
+    </form>
+
+    <p>
+         <span id="dataSpan"> </span> <!--Coordinates:-->
+         <span id="locationSpan"> </span> <!--Location:-->
+         <span id="elevationSpan"> </span> <!--Elevation:-->
+         <span id="sunriseSpan"></span><span id="sunsetSpan"></span> <!--Sunrise and sunset:-->
+    </p>
+
+
+    <script src="./main.js"></script>
+</body>
+</html>
