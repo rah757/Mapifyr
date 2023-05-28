@@ -1,4 +1,73 @@
 #map{
-    width: 500px;
+    width: 90vw;
     height: 500px;
 }
+
+body{
+    font-family: 'Varela Round', sans-serif;
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(173, 209, 158);
+    background-color: rgb(170, 211, 223);
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    border-radius: 0px;
+    max-width: 98vw;
+    flex-basis: 100%;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+header img{ 
+    justify-self: center;
+}
+
+h2{
+    font-size: 30px;
+}
+
+#form{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-basis: 100%;
+}
+
+
+.searchTerm{
+    height: 40px;
+    width: 500px;
+    border-radius: 50px;
+    outline: none;
+    background: none;
+    border: 3.5px solid white;
+    color: white;
+    font-size: 17px;
+}
+
+.searchButton{
+    height: 48px;
+    width: 48px;
+    border-radius: 50px;
+    background: none;
+    text-align: center;
+    outline: none;
+    border: 3.5px solid white;
+    margin: 10px;
+}
+
+input {
+    text-align: left;
+    padding-left: 13px;
+  }
+  ::-webkit-input-placeholder {
+    text-align: left;
+  }
+  :-moz-placeholder {
+    text-align: left;
+  }

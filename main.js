@@ -57,9 +57,6 @@ async function getData(place){
 
     if(data.length === 0){
         dataSpan.innerHTML  = `Could not retrieve data, try another location`
-        locationSpan.innerHTML = ''
-        dataSpan.innerHTML = htmlCoords
-        locationSpan.innerHTML = location
         return;
     }
 
@@ -100,7 +97,7 @@ async function getAltitude(longitude,latitude){
 
     console.log(elevation)
 
-    let elevationHtml = `<p> The altitude in the area is ${elevation}m </p>`
+    let elevationHtml = `<p> The area is ${elevation}m above sea level </p>`
     elevationSpan.innerHTML = elevationHtml
 
     getSun(longitude,latitude)
