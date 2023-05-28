@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <header>
+    <header id="header">
         <img src="./assets/mapifyr_header.png" alt="Mapifyr">
     </header>
 
@@ -28,21 +28,31 @@
     </div>
     
     <div id="coordinates" class="element">
-        <span id="dataSpan"></span>
+        <span id="dataHeader" class="dataHeader"></span>
+        <span id="dataSpan" class="dataSpan"></span>
     </div>
 
-    <p>
-          <!--Coordinates:-->
-         <span id="locationSpan"> </span> <!--Location:-->
-         <span id="elevationSpan"> </span> <!--Elevation:-->
-         <span id="sunriseSpan"></span><span id="sunsetSpan"></span> <!--Sunrise and sunset:-->
-    </p>
+    <div id="location" class="element">
+        <span id="locationHeader" class="dataHeader"></span>
+        <span id="locationSpan" class="dataSpan"> </span>
+    </div>
 
-    <div id="mapParent">
-        <div id="map" style="border-radius: 25px;"></div>
+    <div id="elevation" class="element">
+        <span id="elevationHeader" class="dataHeader"></span>
+        <span id="elevationSpan" class="dataSpan"> </span>
     </div>
     
-     
+    <div id="sun" class="element">
+        <span id="sunHeader" class="dataHeader"></span>
+        <span id="sunSpan" class="dataSpan"></span>
+    </div>
+
+
+
+    <div id="mapParent" class="element"></div>
+    
+    <span id="returnButton" class="dataSpan"></span>     
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="./main.js"></script>
 </body>

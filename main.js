@@ -52,10 +52,14 @@ async function getData(place){
 
     address = data[0].display_name
 
-    const htmlCoords = `<p> Latitude = ${data[0].lat} </p> <p>  Longitude = ${data[0].lon} </p>`
-    let location = `<p> The area that had been identified is ${address} </p>`
+    const htmlCoordsHeader = `<h3> Coordinates: </h3>`
+    const htmlCoords = `<p> Latitude = ${data[0].lat}&#xb0 </p> <p>  Longitude = ${data[0].lon}&#xb0 </p>`
+    const locationHead = `<h3> Location: </h3>`
+    const location = `<p>${address} </p>`
 
+    dataHeader.innerHTML = htmlCoordsHeader
     dataSpan.innerHTML = htmlCoords
+    locationHeader.innerHTML = locationHead
     locationSpan.innerHTML = location
     console.log("printed coordinates")
 
@@ -87,7 +91,9 @@ async function getAltitude(longitude,latitude){
 
     console.log(elevation)
 
-    let elevationHtml = `<p> The area is ${elevation}m above sea level </p>`
+    let elevationHead = `<h3>Elevation: </h3>`
+    let elevationHtml = `<p> This area is ${elevation}m above sea level </p>`
+    elevationHeader.innerHTML = elevationHead
     elevationSpan.innerHTML = elevationHtml
 
     getSun(longitude,latitude)
@@ -111,17 +117,21 @@ async function getSun(longitude,latitude){
 
     sunset = data.results.sunset
 
-    let sunriseHTML = `<p> Sunrise: ${sunrise} </p>`
-    sunriseSpan.innerHTML = sunriseHTML
+    let sunHead = `<h3>Sunrise and Sunset: </h3>`
+    sunHeader.innerHTML = sunHead
     
-    let sunsetHTML = `<p> Sunset: ${sunset} </p>`
-    sunsetSpan.innerHTML = sunsetHTML
+    let sunHTML = `<p> Sunrise: ${sunrise} </p><p> Sunset: ${sunset} </p>`
+    sunSpan.innerHTML = sunHTML
+
 
     // Adding map element 
-    let childHTML = `<div id="map" style="border-radius: 25px;"></div>`;
+    let childHTML = `<span id="mapHeader" class="dataHeader"><h3>~Map~</h3></span>  <div id="map" class="dataSpan" style="border-radius: 25px;"></div>`;
     divParent.innerHTML = childHTML
 
     makeMap(latitude,longitude)
+
+    returnHTML = `<a href="#header">Search another location?</a>`
+    returnButton.innerHTML = returnHTML
     
 }
 

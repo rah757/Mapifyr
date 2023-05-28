@@ -1,6 +1,7 @@
 #map{
-    width: 90vw;
-    height: 500px;
+    width: 70vw;
+    height: 400px;
+    border: 5px solid white;
 }
 
 body{
@@ -53,6 +54,11 @@ h2{
     font-size: 17px;
 }
 
+.searchTerm:hover{
+    cursor: text;
+    background-color: rgba(190, 217, 225, 0.5);
+}
+
 .searchButton{
     height: 48px;
     width: 48px;
@@ -74,23 +80,72 @@ input {
     padding-left: 13px;
   }
   ::-webkit-input-placeholder {
-    text-align: left;
+    padding-left: 13px;
   }
   :-moz-placeholder {
-    text-align: left;
+    padding-left: 13px;
   }
 
   .element{
     display: flex;
     justify-content: space-between;
     flex-basis: 100%;
+    flex-wrap: wrap;
   }
 
-  .element #dataSpan{
-    padding-top: 30px;
+  .element .dataHeader{
     display: flex;
-    justify-content: space-around;
+    flex-basis: 100%;
+    max-width: 50vw;
+    margin: auto;
+    justify-content: center;
+    text-decoration: underline;
+    padding-top: 30px;
+  }
+
+  h3{
+    color: rgb(170, 211, 223);
+    background-color: rgba(255, 255, 255, 0.927);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 50px;
+  }
+
+  p{
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 50px;
+    border: 2px solid white;
+  }
+
+  .element #dataHeader{
+    padding-top: 50px;
+  }
+
+  .element .dataSpan{
+    /* padding-top: 50px; */
+    display: flex;
     flex-basis: 100%;
     max-width: 70vw;
     margin: auto;
+    justify-content: space-evenly;
+    padding-top: 0px;
+  }
+
+  #sunSpan{
+    padding-bottom: 20px;
+  }
+
+
+  #returnButton a{
+    color: rgb(170, 211, 223);
+    background-color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 50px;
+  }
+
+  #returnButton{
+    padding-top: 25px;
+    padding-bottom: 15px;
   }
