@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Varela+Round&display=swap" rel="stylesheet">
     <title>Mapifyr</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
@@ -24,15 +27,21 @@
         </form>
     </div>
     
+    <div id="coordinates" class="element">
+        <span id="dataSpan"></span>
+    </div>
 
     <p>
-         <span id="dataSpan"> </span> <!--Coordinates:-->
+          <!--Coordinates:-->
          <span id="locationSpan"> </span> <!--Location:-->
          <span id="elevationSpan"> </span> <!--Elevation:-->
          <span id="sunriseSpan"></span><span id="sunsetSpan"></span> <!--Sunrise and sunset:-->
     </p>
 
-    <div id="map" style="border-radius: 25px;"></div>
+    <div id="mapParent">
+        <div id="map" style="border-radius: 25px;"></div>
+    </div>
+    
      
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="./main.js"></script>

@@ -4,13 +4,17 @@
 }
 
 body{
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     display: flex;
     align-content: center;
     flex-wrap: wrap;
     justify-content: center;
     background-color: rgb(173, 209, 158);
     background-color: rgb(170, 211, 223);
+    background:  rgb(170, 211, 223);
+    color:white;
+    font-weight: 600;
+    font-size: 17px;
 }
 
 header{
@@ -19,7 +23,7 @@ header{
     border-radius: 0px;
     max-width: 98vw;
     flex-basis: 100%;
-    padding-top: 20px;
+    padding-top: 40px;
     padding-bottom: 50px;
 }
 
@@ -74,4 +78,19 @@ input {
   }
   :-moz-placeholder {
     text-align: left;
+  }
+
+  .element{
+    display: flex;
+    justify-content: space-between;
+    flex-basis: 100%;
+  }
+
+  .element #dataSpan{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-basis: 100%;
+    max-width: 70vw;
+    margin: auto;
   }

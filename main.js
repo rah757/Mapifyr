@@ -1,16 +1,3 @@
-// // API for map
-
-// var map = L.map('map').setView([51.505, -0.09], 13);
-// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-// attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-// }).addTo(map);
-
-// L.marker([51.5, -0.09]).addTo(map)
-// .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-// .openPopup();
-
-// // ----------------------------------------------------------------------------------------
-
 const placeForm = document.querySelector("#placeForm")
 
 const dataSpan = document.querySelector("#dataSpan")
@@ -35,6 +22,9 @@ let sunrise;
 let sunset;
 let address;
 
+// making parameters for the ablility to make the map div removable and addable under mapParent
+let divRemove = document.getElementById("map");
+let divParent = document.getElementById("mapParent");
 
 
 async function getData(place){
@@ -62,7 +52,7 @@ async function getData(place){
 
     address = data[0].display_name
 
-    const htmlCoords = `<p> Latitude = ${data[0].lat}  Longitude = ${data[0].lon} </p>`
+    const htmlCoords = `<p> Latitude = ${data[0].lat} </p> <p>  Longitude = ${data[0].lon} </p>`
     let location = `<p> The area that had been identified is ${address} </p>`
 
     dataSpan.innerHTML = htmlCoords
@@ -70,12 +60,12 @@ async function getData(place){
     console.log("printed coordinates")
 
 
-    // TO RETRIEVE COUNTRY NAME
-    let str = data[0].display_name
-    console.log(str)
-    let strArr = str.split(", ");
-    let country = strArr.pop();
-    console.log(country)
+    // TO RETRIEVE COUNTRY NAME  - cancelled functionality
+    // let str = data[0].display_name
+    // console.log(str)
+    // let strArr = str.split(", ");
+    // let country = strArr.pop();
+    // console.log(country)
 
     getAltitude(longitude,latitude)
 
@@ -127,6 +117,10 @@ async function getSun(longitude,latitude){
     let sunsetHTML = `<p> Sunset: ${sunset} </p>`
     sunsetSpan.innerHTML = sunsetHTML
 
+    // Adding map element 
+    let childHTML = `<div id="map" style="border-radius: 25px;"></div>`;
+    divParent.innerHTML = childHTML
+
     makeMap(latitude,longitude)
     
 }
@@ -149,8 +143,19 @@ placeForm.addEventListener("submit", handleSubmit)
 function handleSubmit(event){
     event.preventDefault()
     let place = placeForm.elements["place"].value
+
+
+    // Removing the map div so it can be re-added in order for the map to be refreshable
+    if(divRemove){                                                      
+        if(divRemove && divRemove.parentNode){
+            divRemove.parentNode.removeChild(divRemove);
+            console.log("removed")
+        }
+    }
+
+
     console.log("Hello world")
-    getData(place)
+    setTimeout(() => {getData(place)}, 300); 
 
 }
 
