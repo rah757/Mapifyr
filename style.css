@@ -38,7 +38,6 @@ h2{
     flex-basis: 100%;
 }
 
-
 .searchTerm{
     height: 40px;
     width: 500px;
@@ -59,6 +58,11 @@ h2{
     outline: none;
     border: 3.5px solid white;
     margin: 10px;
+}
+
+.searchButton:hover{
+    cursor: pointer;
+    background-color: rgba(190, 217, 225, 0.5);
 }
 
 input {
