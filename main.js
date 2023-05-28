@@ -1,3 +1,16 @@
+// // API for map
+
+// var map = L.map('map').setView([51.505, -0.09], 13);
+// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+// attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+// }).addTo(map);
+
+// L.marker([51.5, -0.09]).addTo(map)
+// .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+// .openPopup();
+
+// // ----------------------------------------------------------------------------------------
+
 const placeForm = document.querySelector("#placeForm")
 
 const dataSpan = document.querySelector("#dataSpan")
@@ -5,7 +18,6 @@ const dataSpan = document.querySelector("#dataSpan")
 const locationSpan = document.querySelector("#locationSpan")
 
 const baseUrl = "https://geocode.maps.co/search?q="
-const apiKey = "" // Add your API Key here
 
 const altitudeApi = "https://api.open-meteo.com/v1/elevation?"
 
@@ -13,6 +25,7 @@ const sunApi = "https://api.sunrisesunset.io/json?"
 
 const timeApi = "https://timeapi.io/api/TimeZone/coordinate?"
 
+const apiKey = "" // Add your API Key here
 
 let data;
 let latitude;
@@ -20,6 +33,8 @@ let longitude;
 let elevation;
 let sunrise;
 let sunset;
+let address;
+
 
 
 async function getData(place){
@@ -35,7 +50,7 @@ async function getData(place){
     console.log(response.status)
 
      //retrieve only the first element of the data
-    console.log(data[0].lat, data[0].lon) //log latitude and longtitude of the place
+    console.log(data[0].lat, data[0].lon) //log latitude and longitude of the place
 
     latitude = data[0].lat;
     longitude = data[0].lon;
@@ -48,9 +63,10 @@ async function getData(place){
         return;
     }
 
+    address = data[0].display_name
 
     const htmlCoords = `<p> Latitude = ${data[0].lat}  Longitude = ${data[0].lon} </p>`
-    let location = `<p> The area that had been identified is ${data[0].display_name} </p>`
+    let location = `<p> The area that had been identified is ${address} </p>`
 
     dataSpan.innerHTML = htmlCoords
     locationSpan.innerHTML = location
@@ -114,11 +130,22 @@ async function getSun(longitude,latitude){
     let sunsetHTML = `<p> Sunset: ${sunset} </p>`
     sunsetSpan.innerHTML = sunsetHTML
 
-    getTime(latitude,longitude)
+    makeMap(latitude,longitude)
     
 }
 
+async function makeMap(longitude,latitude){
 
+    var map = L.map('map').setView([longitude, latitude], 13);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    L.marker([longitude, latitude]).addTo(map)
+    .bindPopup(`${address}`)
+    .openPopup();
+
+}
 
 placeForm.addEventListener("submit", handleSubmit)
 
@@ -129,3 +156,5 @@ function handleSubmit(event){
     getData(place)
 
 }
+
+
