@@ -120,7 +120,7 @@ async function getSun(longitude,latitude){
     let sunHead = `<h3>Sunrise and Sunset: </h3>`
     sunHeader.innerHTML = sunHead
     
-    let sunHTML = `<p> Sunrise: ${sunrise} </p><p> Sunset: ${sunset} </p>`
+    let sunHTML = `<p>&#x2600 Sunrise: ${sunrise} </p><p>&#x263C Sunset: ${sunset} </p>`
     sunSpan.innerHTML = sunHTML
 
 
