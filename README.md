@@ -3,7 +3,12 @@
 https://rah757.github.io/Mapifyr/
 ### Description
 This is a small project built using various APIs on a single application. 
-It consists of APIs such as geocode.maps.co, open-meteo.com, sunrisesunset.io, timeapi.io.
+It consists of APIs such as:
+*geocode.maps.co
+*open-meteo.com
+*sunrisesunset.io
+*timeapi.io
+*leafletjs.com
 The application is built using HTML, CSS and Javascript
 
 ### Screenshots
